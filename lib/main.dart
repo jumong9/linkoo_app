@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Linkoo App'),
+      home: MyHomePage(title: 'Linkoo App2'),
     );
   }
 }
