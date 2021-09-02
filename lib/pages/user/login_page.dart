@@ -39,9 +39,9 @@ class LoginPage extends StatelessWidget {
           CustomTextFormField(hint:"Enter ID"),
           CustomTextFormField(hint:"Enter Password", password: true),
           SizedBox(height: 10,),
-          CustomElevatedButton(text: "로그인", pageRoute: () => Get.to(HomePage())),
+          CustomElevatedButton(text: "로그인", fucPageRoute: () => Get.to(HomePage())),
           SizedBox(height: 10,),
-          CustomElevatedButton(text: "회원가입", pageRoute: () => Get.to(JoinPage())),
+          CustomElevatedButton(text: "회원가입", fucPageRoute: () => Get.to(JoinPage())),
         ],
       ),
     );

@@ -40,7 +40,7 @@ class JoinPage extends StatelessWidget {
           CustomTextFormField(hint:"Enter Email"),
           CustomElevatedButton(
               text:"회원가입",
-              pageRoute: () => Get.to(LoginPage()),
+              fucPageRoute: () => Get.to(LoginPage()),
           ),
         ],
       ),

@@ -4,7 +4,7 @@ class CustomTextFormField extends StatelessWidget {
 
   final String hint;
   final bool password;
-  final validator;
+  //final validator;
 
   const CustomTextFormField({
     @required this.hint,
