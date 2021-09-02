@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:linkoo_app/components/custom_elevated_button.dart';
 import 'package:linkoo_app/components/custom_text_form_field.dart';
+import 'package:linkoo_app/pages/user/login_page.dart';
 
 class JoinPage extends StatelessWidget {
+
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -28,15 +32,19 @@ class JoinPage extends StatelessWidget {
 
   Widget _joinForm() {
     return Form(
-            child: Column(
-              children: [
-                CustomTextFormField(hint:"Enter Username"),
-                CustomTextFormField(hint:"Enter Password"),
-                CustomTextFormField(hint:"Enter Email"),
-                CustomElevatedButton(text:"회원가입"),
-              ],
-            ),
-          );
+      key: _formKey,
+      child: Column(
+        children: [
+          CustomTextFormField(hint:"Enter Username"),
+          CustomTextFormField(hint:"Enter Password"),
+          CustomTextFormField(hint:"Enter Email"),
+          CustomElevatedButton(
+              text:"회원가입",
+              pageRoute: () => Get.to(LoginPage()),
+          ),
+        ],
+      ),
+    );
   }
 }
 
