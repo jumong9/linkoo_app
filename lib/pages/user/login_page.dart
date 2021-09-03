@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:linkoo_app/components/custom_elevated_button.dart';
 import 'package:linkoo_app/components/custom_text_form_field.dart';
 import 'package:linkoo_app/pages/post/home_page.dart';
-
-import 'join_page.dart';
+import 'package:linkoo_app/pages/user/join_page.dart';
+import 'package:linkoo_app/util/validator_util.dart';
 
 class LoginPage extends StatelessWidget {
 
@@ -34,14 +34,31 @@ class LoginPage extends StatelessWidget {
 
   Widget _loginForm() {
     return Form(
+      key: _formKey,
       child: Column(
         children: [
-          CustomTextFormField(hint:"Enter ID"),
-          CustomTextFormField(hint:"Enter Password", password: true),
+          CustomTextFormField(
+            hint:"Enter ID",
+            fncValidator:validateID(),
+          ),
+          CustomTextFormField(hint:"Enter Password",
+            fncValidator:validatePassword(),
+          ),
           SizedBox(height: 10,),
-          CustomElevatedButton(text: "로그인", fucPageRoute: () => Get.to(HomePage())),
+          CustomElevatedButton(text: "로그인",
+              fncPageRoute: () {
+              print(_formKey.currentState);
+              if (_formKey.currentState.validate()) {
+                Get.to(HomePage());
+              }
+            }
+          ),
           SizedBox(height: 10,),
-          CustomElevatedButton(text: "회원가입", fucPageRoute: () => Get.to(JoinPage())),
+          CustomElevatedButton(text: "회원가입",
+              fncPageRoute:(){
+                Get.to(JoinPage());
+            }
+          ),
         ],
       ),
     );

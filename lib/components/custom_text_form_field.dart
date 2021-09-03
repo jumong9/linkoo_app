@@ -4,11 +4,12 @@ class CustomTextFormField extends StatelessWidget {
 
   final String hint;
   final bool password;
-  //final validator;
+  final fncValidator;
 
   const CustomTextFormField({
     @required this.hint,
-    this.password = false
+    this.password = false,
+    @required this.fncValidator
   });
 
   @override
@@ -16,6 +17,7 @@ class CustomTextFormField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: TextFormField(
+        validator: fncValidator,
         obscureText: password ? true : false,
         decoration: InputDecoration(
           hintText: "$hint",

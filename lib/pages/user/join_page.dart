@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:linkoo_app/components/custom_elevated_button.dart';
 import 'package:linkoo_app/components/custom_text_form_field.dart';
 import 'package:linkoo_app/pages/user/login_page.dart';
+import 'package:linkoo_app/util/validator_util.dart';
 
 class JoinPage extends StatelessWidget {
 
@@ -35,12 +36,27 @@ class JoinPage extends StatelessWidget {
       key: _formKey,
       child: Column(
         children: [
-          CustomTextFormField(hint:"Enter Username"),
-          CustomTextFormField(hint:"Enter Password"),
-          CustomTextFormField(hint:"Enter Email"),
+          CustomTextFormField(
+            hint:"Enter ID",
+            fncValidator: validateID(),
+          ),
+          CustomTextFormField(
+              hint:"Enter Password",
+              fncValidator:validatePassword(),
+          ),
+          CustomTextFormField(
+              hint:"Enter Email",
+              fncValidator:validateEmail(),
+          ),
           CustomElevatedButton(
-              text:"회원가입",
-              fucPageRoute: () => Get.to(LoginPage()),
+            text:"회원가입",
+            fncPageRoute: (){
+              //print(_formKey.currentState);
+              //print(_formKey.currentState.validate());
+              if(_formKey.currentState.validate()){
+                Get.to(LoginPage());
+              }
+            },
           ),
         ],
       ),
