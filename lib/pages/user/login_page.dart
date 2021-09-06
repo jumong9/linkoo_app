@@ -44,21 +44,17 @@ class LoginPage extends StatelessWidget {
           CustomTextFormField(hint:"Enter Password",
             fncValidator:validatePassword(),
           ),
-          SizedBox(height: 10,),
           CustomElevatedButton(text: "로그인",
               fncPageRoute: () {
-              print(_formKey.currentState);
               if (_formKey.currentState.validate()) {
                 Get.to(HomePage());
               }
             }
           ),
-          SizedBox(height: 10,),
-          CustomElevatedButton(text: "회원가입",
-              fncPageRoute:(){
-                Get.to(JoinPage());
-            }
-          ),
+          TextButton(onPressed: (){
+            Get.to(JoinPage());
+          },child: Text("로그인 하기")
+          )
         ],
       ),
     );

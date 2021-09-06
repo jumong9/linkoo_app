@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
-class CustomTextFormField extends StatelessWidget {
+class CustomTextareaFormField extends StatelessWidget {
 
   final String hint;
-  final bool password;
   final fncValidator;
   final String value;
 
-  const CustomTextFormField({
+
+  const CustomTextareaFormField({
     @required this.hint,
-    this.password = false,
     @required this.fncValidator,
     this.value
   });
@@ -20,21 +19,21 @@ class CustomTextFormField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: TextFormField(
         initialValue: this.value ?? "",
+        maxLines: 15,
         validator: fncValidator,
-        obscureText: password ? true : false,
         decoration: InputDecoration(
           hintText: "$hint",
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(5),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(5),
           ),
           errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(5),
           ),
           focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(5),
           ),
         ),
       ),

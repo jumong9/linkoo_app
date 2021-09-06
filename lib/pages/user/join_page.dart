@@ -51,13 +51,15 @@ class JoinPage extends StatelessWidget {
           CustomElevatedButton(
             text:"회원가입",
             fncPageRoute: (){
-              //print(_formKey.currentState);
-              //print(_formKey.currentState.validate());
               if(_formKey.currentState.validate()){
                 Get.to(LoginPage());
               }
             },
           ),
+          TextButton(onPressed: (){
+            Get.to(LoginPage());
+          },child: Text("회원가입 하기")
+          )
         ],
       ),
     );
